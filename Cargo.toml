@@ -1,0 +1,38 @@
+[package]
+name = "jacob"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies.windows]
+version = "0.58"
+features = [
+    "Foundation",              
+    "Graphics_Imaging",        
+    "Media_Ocr",              
+    "Storage_Streams",        
+    "implement",             
+    "Foundation_Numerics",
+    "Win32_Foundation",
+    "Graphics_Capture",
+    "Win32_Graphics_Direct3D", 
+    "Graphics_Display",
+    "Graphics_DirectX_Direct3D11",       
+    "Win32_Graphics_Direct2D",
+    "Win32_Graphics_Direct2D_Common",
+    "Win32_Graphics_Direct3D",
+    "Win32_Graphics_DirectWrite",
+    "Win32_Graphics_Direct3D11",
+    "Win32_Graphics_DirectComposition",
+    "Win32_Graphics_Dxgi",
+    "Win32_Graphics_Dxgi_Common",
+    "Win32_Graphics_Gdi",     # Для BitBlt и создания окна
+    "Win32_System_LibraryLoader",
+    "Win32_UI_Input_KeyboardAndMouse",
+    "Win32_UI_WindowsAndMessaging",
+]
+[profile.release]
+opt-level = 3      
+lto = true          
+codegen-units = 1   
+panic = "abort"     
+strip = true        
