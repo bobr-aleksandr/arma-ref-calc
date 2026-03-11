@@ -116,10 +116,10 @@ impl GunType {
             // Soviet 6000
             GunType::Gun125 => (915.0, 23.0, 0.016, 2900.0, false, 0.0, 6.03, 14.15, 10.0, true, 6000.0),
             GunType::GunAGS => (310.000, 0.026, 0.0000001, 2900.0, false, 0.0, 6.03, 14.15, 10.0, true, 6000.0),
-            GunType::Gun82he1 => (76.000*1.795, 3.10000, 0.0006150, 2900.0, true, 0.0, 10.0, 74.0, 10.0, false, 6000.0),
-            GunType::Gun82he2 => (76.000*2.443, 3.10000, 0.0006150, 2900.0, true, 0.0, 10.0, 74.0, 10.0, false, 6000.0),
-            GunType::Gun82he3 => (76.000*3.042, 3.10000, 0.0006150, 2900.0, true, 0.0, 10.0, 74.0, 10.0, false, 6000.0),
-            GunType::Gun82he4 => (76.000*3.731, 3.10000, 0.0006150, 2900.0, true, 0.0, 10.0, 74.0, 10.0, false, 6000.0),
+            GunType::Gun82he1 => (76.000*1.321, 3.10000, 0.0006150, 2900.0, true, 0.0, 10.0, 74.0, 10.0, false, 6000.0),
+            GunType::Gun82he2 => (76.000*1.736, 3.10000, 0.0006150, 2900.0, true, 0.0, 10.0, 74.0, 10.0, false, 6000.0),
+            GunType::Gun82he3 => (76.000*2.087, 3.10000, 0.0006150, 2900.0, true, 0.0, 10.0, 74.0, 10.0, false, 6000.0),
+            GunType::Gun82he4 => (76.000*2.455, 3.10000, 0.0006150, 2900.0, true, 0.0, 10.0, 74.0, 10.0, false, 6000.0),
             GunType::Gunm7771 => (100.000*1.400, 43.00000, 0.0097000, 2900.0, false, 0.0, 10.0, 74.0, 10.0, false, 6400.0),
             GunType::Gunm7772=> (100.000*2.045, 43.00000, 0.0097000, 2900.0, false, 0.0, 10.0, 74.0, 10.0, false, 6400.0),
             GunType::Gunm7773=> (100.000*2.790, 43.00000, 0.0097000, 2900.0, false, 0.0, 10.0, 74.0, 10.0, false, 6400.0),
@@ -522,7 +522,7 @@ unsafe fn run_win32_app(state: Arc<Mutex<SharedState>>) -> Result<()> {
         w!("Artillery Calc Rust"),
         WS_OVERLAPPEDWINDOW & !WS_MAXIMIZEBOX & !WS_THICKFRAME & !WS_SYSMENU,
         CW_USEDEFAULT, CW_USEDEFAULT,
-        250, 810,
+        250, 850,
         HWND::default(),
         HMENU::default(),
         h_inst,
@@ -1240,7 +1240,7 @@ unsafe extern "system" fn settings_wnd_proc(
             create_input(ID_EDIT_OBJ_HEIGHT, "Obj Height:", "0", hwnd, h_instance, &mut y);
 
             y += 10;
-            let _ = CreateWindowExW(Default::default(), w!("STATIC"), w!("MAP SETTINGS (KV=TL, Cam=Right)"), WS_CHILD | WS_VISIBLE, 10, y, 250, 20, hwnd, HMENU::default(), h_instance, None);
+            let _ = CreateWindowExW(Default::default(), w!("STATIC"), w!("MAP SETTINGS"), WS_CHILD | WS_VISIBLE, 10, y, 250, 20, hwnd, HMENU::default(), h_instance, None);
             y += 25;
             create_input(ID_EDIT_MAP_KV, "MapCode:", "000000", hwnd, h_instance, &mut y);
             
@@ -1345,7 +1345,7 @@ unsafe extern "system" fn settings_wnd_proc(
             );
 
             y += 40;
-            let _ = CreateWindowExW(Default::default(), w!("STATIC"), w!("Ctrl+1 - Settings\nCtrl+2 - Flight Timer\n= - Toggle Overlay\nCtrl+3 - Угол квадрата\nCtrl+4 - Правая граница (м/px)\nCtrl+5 - Target из полей\nCtrl+6 - Target по курсору\nQ+E - Auto Elevate"), WS_CHILD | WS_VISIBLE, 10, y, 300, 120, hwnd, HMENU::default(), h_instance, None);
+            let _ = CreateWindowExW(Default::default(), w!("STATIC"), w!("Ctrl+1 - Settings\nCtrl+2 - Flight Timer\n= - Toggle Overlay\nCtrl+3 - grid angle(left)\nCtrl+4 - right end of grid (м/px)\nCtrl+5 - place target\nCtrl+6 - Get target pos\nQ+E - Auto Elevate"), WS_CHILD | WS_VISIBLE, 10, y, 300, 150, hwnd, HMENU::default(), h_instance, None);
 
             LRESULT(0)
         }
