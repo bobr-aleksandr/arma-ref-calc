@@ -1242,7 +1242,7 @@ unsafe extern "system" fn settings_wnd_proc(
             y += 10;
             let _ = CreateWindowExW(Default::default(), w!("STATIC"), w!("MAP SETTINGS"), WS_CHILD | WS_VISIBLE, 10, y, 250, 20, hwnd, HMENU::default(), h_instance, None);
             y += 25;
-            create_input(ID_EDIT_MAP_KV, "MapCode:", "000000", hwnd, h_instance, &mut y);
+            create_input(ID_EDIT_MAP_KV, "grid square:", "000000", hwnd, h_instance, &mut y);
             
             let wide_label: Vec<u16> = "Scale (Auto):".encode_utf16().chain(std::iter::once(0)).collect();
             let _ = CreateWindowExW(
